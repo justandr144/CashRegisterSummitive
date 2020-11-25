@@ -50,12 +50,13 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.orderNumberLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
-            this.leftreceiptLabel = new System.Windows.Forms.Label();
+            this.leftReceiptLabel = new System.Windows.Forms.Label();
             this.tenderedText = new System.Windows.Forms.TextBox();
-            this.rightreceiptLabel = new System.Windows.Forms.Label();
+            this.rightReceiptLabel = new System.Windows.Forms.Label();
             this.subTotalCostLabel = new System.Windows.Forms.Label();
             this.taxCostLabel = new System.Windows.Forms.Label();
             this.totalCostLabel = new System.Windows.Forms.Label();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // burgerAmountLabel
@@ -230,8 +231,9 @@
             // 
             // receiptBackLabel
             // 
+            this.receiptBackLabel.BackColor = System.Drawing.Color.White;
             this.receiptBackLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.receiptBackLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiptBackLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.receiptBackLabel.Location = new System.Drawing.Point(262, 9);
             this.receiptBackLabel.Name = "receiptBackLabel";
             this.receiptBackLabel.Size = new System.Drawing.Size(315, 415);
@@ -253,8 +255,9 @@
             // titleLabel
             // 
             this.titleLabel.AutoSize = true;
+            this.titleLabel.BackColor = System.Drawing.Color.White;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(340, 23);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(167, 16);
@@ -263,6 +266,7 @@
             // 
             // orderNumberLabel
             // 
+            this.orderNumberLabel.BackColor = System.Drawing.Color.White;
             this.orderNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderNumberLabel.ForeColor = System.Drawing.Color.Black;
             this.orderNumberLabel.Location = new System.Drawing.Point(280, 50);
@@ -273,22 +277,24 @@
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
+            this.dateLabel.BackColor = System.Drawing.Color.White;
             this.dateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.dateLabel.ForeColor = System.Drawing.Color.White;
             this.dateLabel.Location = new System.Drawing.Point(280, 67);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(158, 16);
             this.dateLabel.TabIndex = 22;
             this.dateLabel.Text = "Date: November 26, 2020";
             // 
-            // leftreceiptLabel
+            // leftReceiptLabel
             // 
-            this.leftreceiptLabel.AutoSize = true;
-            this.leftreceiptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leftreceiptLabel.Location = new System.Drawing.Point(280, 113);
-            this.leftreceiptLabel.Name = "leftreceiptLabel";
-            this.leftreceiptLabel.Size = new System.Drawing.Size(0, 16);
-            this.leftreceiptLabel.TabIndex = 23;
+            this.leftReceiptLabel.AutoSize = true;
+            this.leftReceiptLabel.BackColor = System.Drawing.Color.White;
+            this.leftReceiptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leftReceiptLabel.Location = new System.Drawing.Point(280, 113);
+            this.leftReceiptLabel.Name = "leftReceiptLabel";
+            this.leftReceiptLabel.Size = new System.Drawing.Size(0, 16);
+            this.leftReceiptLabel.TabIndex = 23;
             // 
             // tenderedText
             // 
@@ -298,15 +304,16 @@
             this.tenderedText.Size = new System.Drawing.Size(84, 22);
             this.tenderedText.TabIndex = 26;
             // 
-            // rightreceiptLabel
+            // rightReceiptLabel
             // 
-            this.rightreceiptLabel.AutoSize = true;
-            this.rightreceiptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rightreceiptLabel.Location = new System.Drawing.Point(438, 113);
-            this.rightreceiptLabel.Name = "rightreceiptLabel";
-            this.rightreceiptLabel.Size = new System.Drawing.Size(0, 16);
-            this.rightreceiptLabel.TabIndex = 27;
-            this.rightreceiptLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.rightReceiptLabel.AutoSize = true;
+            this.rightReceiptLabel.BackColor = System.Drawing.Color.White;
+            this.rightReceiptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rightReceiptLabel.Location = new System.Drawing.Point(438, 113);
+            this.rightReceiptLabel.Name = "rightReceiptLabel";
+            this.rightReceiptLabel.Size = new System.Drawing.Size(0, 16);
+            this.rightReceiptLabel.TabIndex = 27;
+            this.rightReceiptLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // subTotalCostLabel
             // 
@@ -335,17 +342,28 @@
             this.totalCostLabel.TabIndex = 30;
             this.totalCostLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorLabel.Location = new System.Drawing.Point(270, 324);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 15);
+            this.errorLabel.TabIndex = 31;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 478);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.totalCostLabel);
             this.Controls.Add(this.taxCostLabel);
             this.Controls.Add(this.subTotalCostLabel);
-            this.Controls.Add(this.rightreceiptLabel);
+            this.Controls.Add(this.rightReceiptLabel);
             this.Controls.Add(this.tenderedText);
-            this.Controls.Add(this.leftreceiptLabel);
+            this.Controls.Add(this.leftReceiptLabel);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.orderNumberLabel);
             this.Controls.Add(this.titleLabel);
@@ -399,12 +417,13 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label orderNumberLabel;
         private System.Windows.Forms.Label dateLabel;
-        private System.Windows.Forms.Label leftreceiptLabel;
+        private System.Windows.Forms.Label leftReceiptLabel;
         private System.Windows.Forms.TextBox tenderedText;
-        private System.Windows.Forms.Label rightreceiptLabel;
+        private System.Windows.Forms.Label rightReceiptLabel;
         private System.Windows.Forms.Label subTotalCostLabel;
         private System.Windows.Forms.Label taxCostLabel;
         private System.Windows.Forms.Label totalCostLabel;
+        private System.Windows.Forms.Label errorLabel;
     }
 }
 

@@ -40,10 +40,17 @@ namespace CashRegisterSummitive
 
         private void CostButton_Click(object sender, EventArgs e)
         {
-            burgerAmount = Convert.ToInt32(burgerText.Text);
-            drinkAmount = Convert.ToInt32(drinkText.Text);
-            friesAmount = Convert.ToInt32(friesText.Text);
-
+            errorLabel.Text = "";
+            try
+            {
+                burgerAmount = Convert.ToInt32(burgerText.Text);
+                drinkAmount = Convert.ToInt32(drinkText.Text);
+                friesAmount = Convert.ToInt32(friesText.Text);
+            }
+            catch
+            {
+                errorLabel.Text = "Please enter whole values into the three food boxes.";
+            }
             burgerTotal = burgerAmount * burgerCost;
             drinkTotal = drinkAmount * drinkCost;
             friesTotal = friesAmount * friesCost;
@@ -60,7 +67,17 @@ namespace CashRegisterSummitive
 
         private void ChangeButton_Click(object sender, EventArgs e)
         {
-            tenderedAmount = Convert.ToDouble(tenderedText.Text);
+            errorLabel.Text = "";
+
+            try
+            {
+                tenderedAmount = Convert.ToDouble(tenderedText.Text);
+            }
+            catch
+            {
+                errorLabel.Text = "Please enter whole values into the three food boxes.";
+                errorLabel.Text += $"\nAlso press the calculate totals before this one";
+            }
 
             if (tenderedAmount >= totalCost)
             {
@@ -78,6 +95,8 @@ namespace CashRegisterSummitive
 
         private void ReceiptButton_Click(object sender, EventArgs e)
         {
+            errorLabel.Text = "";
+
             titleLabel.ForeColor = Color.Black;
             Refresh();
             Thread.Sleep(500);
@@ -87,13 +106,73 @@ namespace CashRegisterSummitive
             Thread.Sleep(500);
 
             dateLabel.ForeColor = Color.Black;
+            Refresh();
+            Thread.Sleep(500);
 
+            leftReceiptLabel.Text = $"Burgers x {burgerAmount}";
+            rightReceiptLabel.Text = $"{burgerTotal.ToString("C")}";
+            Refresh();
+            Thread.Sleep(500);
 
+            leftReceiptLabel.Text += $"\nDrinks x {drinkAmount}";
+            rightReceiptLabel.Text += $"\n{drinkTotal.ToString("C")}";
+            Refresh();
+            Thread.Sleep(500);
+
+            leftReceiptLabel.Text += $"\nFries x {friesAmount}";
+            rightReceiptLabel.Text += $"\n{friesTotal.ToString("C")}";
+            Refresh();
+            Thread.Sleep(500);
+
+            leftReceiptLabel.Text += $"\n\nSub Total:";
+            rightReceiptLabel.Text += $"\n\n{subTotal.ToString("C")}";
+            Refresh();
+            Thread.Sleep(500);
+
+            leftReceiptLabel.Text += $"\nTax:";
+            rightReceiptLabel.Text += $"\n{taxAmount.ToString("C")}";
+            Refresh();
+            Thread.Sleep(500);
+
+            leftReceiptLabel.Text += $"\nTotal:";
+            rightReceiptLabel.Text += $"\n{totalCost.ToString("C")}";
+            Refresh();
+            Thread.Sleep(500);
+
+            leftReceiptLabel.Text += $"\n\nTendered:";
+            rightReceiptLabel.Text += $"\n\n{tenderedAmount.ToString("C")}";
+            Refresh();
+            Thread.Sleep(500);
+
+            leftReceiptLabel.Text += $"\nChange:";
+            rightReceiptLabel.Text += $"\n{changeAmount.ToString("C")}";
+            Refresh();
+            Thread.Sleep(500);
+
+            leftReceiptLabel.Text += "\n\nHave a nice day!";
         }
 
         private void NewOrderButton_Click(object sender, EventArgs e)
         {
             orderNumber++;
+            titleLabel.ForeColor = Color.White;
+            orderNumberLabel.Text = "";
+            dateLabel.ForeColor = Color.White;
+            leftReceiptLabel.Text = "";
+            rightReceiptLabel.Text = "";
+
+            subTotalCostLabel.Text = "";
+            taxCostLabel.Text = "";
+            totalCostLabel.Text = "";
+            changeValueLabel.Text = "";
+
+            burgerTotal = 0;
+            drinkTotal = 0;
+            friesTotal = 0;
+            subTotal = 0;
+            taxAmount = 0;
+            totalCost = 0;
+            changeAmount = 0;
         }
 
     }
