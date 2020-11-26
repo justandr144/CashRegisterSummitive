@@ -276,6 +276,57 @@ namespace CashRegisterSummitive
                     errorLoginLabel.Text = "Pin must be a number";
                 }
             }
+
+            if (username == "Mr. T")                            //Username check
+            {
+                try                                                //Avoiding crashes
+                {
+                    pin = Convert.ToInt32(pinText.Text);
+                    if (pin == 5678)                               //Pin check then hiding the login screen
+                    {
+                        errorLoginLabel.Visible = false;
+                        loginBackLabel.Visible = false;
+                        usernameLabel.Visible = false;
+                        pinLabel.Visible = false;
+                        usernameText.Visible = false;
+                        pinText.Visible = false;
+                        loginButton.Visible = false;
+
+                        usernameTitleLabel.BackColor = Color.Red;
+                        usernameTitleLabel.Text = $"{username}";
+
+                    }
+                    else
+                    {
+                        errorLoginLabel.Text = "Incorrect pin number";
+                    }
+                }
+                catch
+                {
+                    errorLoginLabel.Text = "Pin must be a number";
+                }
+
+            }
+            else
+            {
+                try                                                //Avoiding crashes
+                {
+                    pin = Convert.ToInt32(pinText.Text);
+                    if (pin == 5678)                               //Checking pin to tell user what is wrong (pin or username)
+                    {
+                        errorLoginLabel.Text = "Incorrect username";
+                    }
+                    else
+                    {
+                        errorLoginLabel.Text = "Incorrect username";
+                        errorLoginLabel.Text += "\nIncorrect pin number";
+                    }
+                }
+                catch
+                {
+                    errorLoginLabel.Text = "Pin must be a number";
+                }
+            }
         }
     }
 }
