@@ -216,7 +216,7 @@ namespace CashRegisterSummitive
             tenderedText.Text = "";
         }
 
-        private void LoginButton_Click(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e) //Login button on click
         {
             int pin;
 
