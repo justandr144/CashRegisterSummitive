@@ -52,21 +52,21 @@ namespace CashRegisterSummitive
             {
                 errorLabel.Text = "Please enter whole values into the three food boxes.";
             }
-            burgerTotal = burgerAmount * burgerCost;
+            burgerTotal = burgerAmount * burgerCost;                  //Calculating the costs without tax
             drinkTotal = drinkAmount * drinkCost;
             friesTotal = friesAmount * friesCost;
 
             subTotal = burgerTotal + drinkTotal + friesTotal;
-            subTotalCostLabel.Text = $"{subTotal.ToString("C")}";
+            subTotalCostLabel.Text = $"{subTotal.ToString("C")}";     
 
             taxAmount = subTotal * taxBase;
-            taxCostLabel.Text = $"{taxAmount.ToString("C")}";
+            taxCostLabel.Text = $"{taxAmount.ToString("C")}";         //adding tax to get total
 
             totalCost = subTotal + taxAmount;
             totalCostLabel.Text = $"{totalCost.ToString("C")}";
         }
 
-        private void ChangeButton_Click(object sender, EventArgs e)     //Calculate change button on click
+        private void ChangeButton_Click(object sender, EventArgs e)   //Calculate change button on click
         {
             errorLabel.Text = "";
 
@@ -90,14 +90,14 @@ namespace CashRegisterSummitive
             {
                 changeAmount = totalCost - tenderedAmount;
                 changeLabel.Text = "Owed:";
-                changeValueLabel.Text = $"{changeAmount.ToString("C")}";
+                changeValueLabel.Text = $"{changeAmount.ToString("C")}";            //Adding if tendered amount is less than cost
             }
         }
 
-        private void ReceiptButton_Click(object sender, EventArgs e)    //Receipt button on click
+        private void ReceiptButton_Click(object sender, EventArgs e)            //Receipt button on click
         {
             errorLabel.Text = "";
-            SoundPlayer receiptTone = new SoundPlayer(Properties.Resources.receiptPrint);
+            SoundPlayer receiptTone = new SoundPlayer(Properties.Resources.receiptPrint);       //Gettiing sounds
             SoundPlayer registerTone = new SoundPlayer(Properties.Resources.registerDing);
 
             titleLabel.ForeColor = Color.Black;
@@ -105,7 +105,7 @@ namespace CashRegisterSummitive
             Refresh();
             Thread.Sleep(800);
 
-            orderNumberLabel.Text = $"Order Number: {orderNumber}";
+            orderNumberLabel.Text = $"Order Number: {orderNumber}";                 //Printing information to the receipt using two labels
             receiptTone.Play();
             Refresh();
             Thread.Sleep(800);
@@ -159,7 +159,7 @@ namespace CashRegisterSummitive
 
             if (changeLabel.Text == "Owed:")
             {
-                leftReceiptLabel.Text += $"\nOwed:";
+                leftReceiptLabel.Text += $"\nOwed:";                            //Using owed in the receipt like above
             }
             else
             {
@@ -185,7 +185,7 @@ namespace CashRegisterSummitive
         private void NewOrderButton_Click(object sender, EventArgs e)   //New order button on click
         {
             orderNumber++;
-            titleLabel.ForeColor = Color.White;
+            titleLabel.ForeColor = Color.White;                         //Reseting everything
             orderNumberLabel.Text = "";
             dateLabel.ForeColor = Color.White;
             leftReceiptLabel.Text = "";
@@ -222,12 +222,12 @@ namespace CashRegisterSummitive
 
             username = usernameText.Text;
 
-            if (username == "Justin A")
+            if (username == "Justin A")                            //Username check
             {
-                try
+                try                                                //Avoiding crashes
                 {
                     pin = Convert.ToInt32(pinText.Text);
-                    if (pin == 1234)
+                    if (pin == 1234)                               //Pin check then hiding the login screen
                     {
                         errorLoginLabel.Visible = false;
                         loginBackLabel.Visible = false;
@@ -254,10 +254,10 @@ namespace CashRegisterSummitive
             }
             else
             {
-                try
+                try                                                //Avoiding crashes
                 {
                     pin = Convert.ToInt32(pinText.Text);
-                    if (pin == 1234)
+                    if (pin == 1234)                               //Checking pin to tell user what is wrong (pin or username)
                     {
                         errorLoginLabel.Text = "Incorrect username";
                     }
