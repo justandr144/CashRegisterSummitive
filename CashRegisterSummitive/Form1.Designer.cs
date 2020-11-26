@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.burgerAmountLabel = new System.Windows.Forms.Label();
             this.drinkAmountLabel = new System.Windows.Forms.Label();
             this.friesAmountLabel = new System.Windows.Forms.Label();
@@ -374,7 +375,7 @@
             // loginBackLabel
             // 
             this.loginBackLabel.BackColor = System.Drawing.Color.Black;
-            this.loginBackLabel.Location = new System.Drawing.Point(-18, -11);
+            this.loginBackLabel.Location = new System.Drawing.Point(-18, -14);
             this.loginBackLabel.Name = "loginBackLabel";
             this.loginBackLabel.Size = new System.Drawing.Size(630, 578);
             this.loginBackLabel.TabIndex = 33;
@@ -495,6 +496,7 @@
             this.Controls.Add(this.friesAmountLabel);
             this.Controls.Add(this.drinkAmountLabel);
             this.Controls.Add(this.burgerAmountLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Fast Food Register";
             this.ResumeLayout(false);
