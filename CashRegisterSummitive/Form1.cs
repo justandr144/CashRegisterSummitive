@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Media;
+/* Justin Andrews
+ * November 26 2020
+ * Basic cash register for summitive
+ */ 
 
 namespace CashRegisterSummitive
 {
@@ -250,7 +254,7 @@ namespace CashRegisterSummitive
                 {
                     errorLoginLabel.Text = "Pin must be a number";
                 }
-
+                 
             }
             else
             {
@@ -273,6 +277,5 @@ namespace CashRegisterSummitive
                 }
             }
         }
-
     }
 }
