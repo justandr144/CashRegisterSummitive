@@ -58,6 +58,14 @@
             this.totalCostLabel = new System.Windows.Forms.Label();
             this.errorLabel = new System.Windows.Forms.Label();
             this.backStripLabel = new System.Windows.Forms.Label();
+            this.loginBackLabel = new System.Windows.Forms.Label();
+            this.usernameLabel = new System.Windows.Forms.Label();
+            this.usernameText = new System.Windows.Forms.TextBox();
+            this.pinLabel = new System.Windows.Forms.Label();
+            this.pinText = new System.Windows.Forms.TextBox();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.errorLoginLabel = new System.Windows.Forms.Label();
+            this.usernameTitleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // burgerAmountLabel
@@ -363,11 +371,100 @@
             this.backStripLabel.Text = "Basic Fast Food Place Inc.";
             this.backStripLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // loginBackLabel
+            // 
+            this.loginBackLabel.BackColor = System.Drawing.Color.Black;
+            this.loginBackLabel.Location = new System.Drawing.Point(-18, -11);
+            this.loginBackLabel.Name = "loginBackLabel";
+            this.loginBackLabel.Size = new System.Drawing.Size(630, 578);
+            this.loginBackLabel.TabIndex = 33;
+            // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.BackColor = System.Drawing.Color.Black;
+            this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.usernameLabel.Location = new System.Drawing.Point(45, 71);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(102, 24);
+            this.usernameLabel.TabIndex = 34;
+            this.usernameLabel.Text = "Username:";
+            // 
+            // usernameText
+            // 
+            this.usernameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameText.Location = new System.Drawing.Point(153, 68);
+            this.usernameText.Name = "usernameText";
+            this.usernameText.Size = new System.Drawing.Size(300, 29);
+            this.usernameText.TabIndex = 35;
+            // 
+            // pinLabel
+            // 
+            this.pinLabel.AutoSize = true;
+            this.pinLabel.BackColor = System.Drawing.Color.Black;
+            this.pinLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pinLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.pinLabel.Location = new System.Drawing.Point(45, 113);
+            this.pinLabel.Name = "pinLabel";
+            this.pinLabel.Size = new System.Drawing.Size(42, 24);
+            this.pinLabel.TabIndex = 36;
+            this.pinLabel.Text = "Pin:";
+            // 
+            // pinText
+            // 
+            this.pinText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pinText.Location = new System.Drawing.Point(153, 118);
+            this.pinText.Name = "pinText";
+            this.pinText.Size = new System.Drawing.Size(300, 29);
+            this.pinText.TabIndex = 37;
+            // 
+            // loginButton
+            // 
+            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginButton.Location = new System.Drawing.Point(193, 201);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(203, 59);
+            this.loginButton.TabIndex = 38;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
+            // 
+            // errorLoginLabel
+            // 
+            this.errorLoginLabel.BackColor = System.Drawing.Color.Black;
+            this.errorLoginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorLoginLabel.ForeColor = System.Drawing.Color.White;
+            this.errorLoginLabel.Location = new System.Drawing.Point(77, 305);
+            this.errorLoginLabel.Name = "errorLoginLabel";
+            this.errorLoginLabel.Size = new System.Drawing.Size(439, 186);
+            this.errorLoginLabel.TabIndex = 39;
+            this.errorLoginLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // usernameTitleLabel
+            // 
+            this.usernameTitleLabel.BackColor = System.Drawing.Color.Black;
+            this.usernameTitleLabel.Font = new System.Drawing.Font("Microsoft Uighur", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameTitleLabel.Location = new System.Drawing.Point(328, 9);
+            this.usernameTitleLabel.Name = "usernameTitleLabel";
+            this.usernameTitleLabel.Size = new System.Drawing.Size(237, 30);
+            this.usernameTitleLabel.TabIndex = 40;
+            this.usernameTitleLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 550);
+            this.Controls.Add(this.usernameTitleLabel);
+            this.Controls.Add(this.errorLoginLabel);
+            this.Controls.Add(this.loginButton);
+            this.Controls.Add(this.pinText);
+            this.Controls.Add(this.pinLabel);
+            this.Controls.Add(this.usernameText);
+            this.Controls.Add(this.usernameLabel);
+            this.Controls.Add(this.loginBackLabel);
             this.Controls.Add(this.backStripLabel);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.totalCostLabel);
@@ -437,6 +534,14 @@
         private System.Windows.Forms.Label totalCostLabel;
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.Label backStripLabel;
+        private System.Windows.Forms.Label loginBackLabel;
+        private System.Windows.Forms.Label usernameLabel;
+        private System.Windows.Forms.TextBox usernameText;
+        private System.Windows.Forms.Label pinLabel;
+        private System.Windows.Forms.TextBox pinText;
+        private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.Label errorLoginLabel;
+        private System.Windows.Forms.Label usernameTitleLabel;
     }
 }
 

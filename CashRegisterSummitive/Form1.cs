@@ -31,6 +31,7 @@ namespace CashRegisterSummitive
         double tenderedAmount = 0;
         double changeAmount = 0;
         int orderNumber = 1;
+        string username;
 
 
         public Form1()
@@ -173,6 +174,11 @@ namespace CashRegisterSummitive
             receiptTone.Play();
             Refresh();
             Thread.Sleep(800);
+
+            leftReceiptLabel.Text += $"\n{username}";
+            receiptTone.Play();
+            Refresh();
+            Thread.Sleep(800);
             registerTone.Play();
         }
 
@@ -199,11 +205,73 @@ namespace CashRegisterSummitive
             taxAmount = 0;
             totalCost = 0;
             changeAmount = 0;
+            burgerAmount = 0;
+            drinkAmount = 0;
+            friesAmount = 0;
+            tenderedAmount = 0;
 
             burgerText.Text = "";
             drinkText.Text = "";
             friesText.Text = "";
             tenderedText.Text = "";
+        }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            int pin;
+
+            username = usernameText.Text;
+
+            if (username == "Justin A")
+            {
+                try
+                {
+                    pin = Convert.ToInt32(pinText.Text);
+                    if (pin == 1234)
+                    {
+                        errorLoginLabel.Visible = false;
+                        loginBackLabel.Visible = false;
+                        usernameLabel.Visible = false;
+                        pinLabel.Visible = false;
+                        usernameText.Visible = false;
+                        pinText.Visible = false;
+                        loginButton.Visible = false;
+
+                        usernameTitleLabel.BackColor = Color.Red;
+                        usernameTitleLabel.Text = $"{username}";
+
+                    }
+                    else
+                    {
+                        errorLoginLabel.Text = "Incorrect pin number";
+                    }
+                }
+                catch
+                {
+                    errorLoginLabel.Text = "Pin must be a number";
+                }
+
+            }
+            else
+            {
+                try
+                {
+                    pin = Convert.ToInt32(pinText.Text);
+                    if (pin == 1234)
+                    {
+                        errorLoginLabel.Text = "Incorrect username";
+                    }
+                    else
+                    {
+                        errorLoginLabel.Text = "Incorrect username";
+                        errorLoginLabel.Text += "\nIncorrect pin number";
+                    }
+                }
+                catch
+                {
+                    errorLoginLabel.Text = "Pin must be a number";
+                }
+            }
         }
 
     }
