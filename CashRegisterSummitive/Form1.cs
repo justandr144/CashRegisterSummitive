@@ -38,7 +38,7 @@ namespace CashRegisterSummitive
             InitializeComponent();
         }
 
-        private void CostButton_Click(object sender, EventArgs e)
+        private void CostButton_Click(object sender, EventArgs e)     //Calculate cost button on click
         {
             errorLabel.Text = "";
             try
@@ -65,7 +65,7 @@ namespace CashRegisterSummitive
             totalCostLabel.Text = $"{totalCost.ToString("C")}";
         }
 
-        private void ChangeButton_Click(object sender, EventArgs e)
+        private void ChangeButton_Click(object sender, EventArgs e)     //Calculate change button on click
         {
             errorLabel.Text = "";
 
@@ -88,71 +88,95 @@ namespace CashRegisterSummitive
             else
             {
                 changeAmount = totalCost - tenderedAmount;
-                changeLabel.Text = "Owed";
+                changeLabel.Text = "Owed:";
                 changeValueLabel.Text = $"{changeAmount.ToString("C")}";
             }
         }
 
-        private void ReceiptButton_Click(object sender, EventArgs e)
+        private void ReceiptButton_Click(object sender, EventArgs e)    //Receipt button on click
         {
             errorLabel.Text = "";
+            SoundPlayer receiptTone = new SoundPlayer(Properties.Resources.receiptPrint);
+            SoundPlayer registerTone = new SoundPlayer(Properties.Resources.registerDing);
 
             titleLabel.ForeColor = Color.Black;
+            receiptTone.Play();
             Refresh();
-            Thread.Sleep(500);
+            Thread.Sleep(800);
 
             orderNumberLabel.Text = $"Order Number: {orderNumber}";
+            receiptTone.Play();
             Refresh();
-            Thread.Sleep(500);
+            Thread.Sleep(800);
 
             dateLabel.ForeColor = Color.Black;
+            receiptTone.Play();
             Refresh();
-            Thread.Sleep(500);
+            Thread.Sleep(800);
 
             leftReceiptLabel.Text = $"Burgers x {burgerAmount}";
             rightReceiptLabel.Text = $"{burgerTotal.ToString("C")}";
+            receiptTone.Play();
             Refresh();
-            Thread.Sleep(500);
+            Thread.Sleep(800);
 
             leftReceiptLabel.Text += $"\nDrinks x {drinkAmount}";
             rightReceiptLabel.Text += $"\n{drinkTotal.ToString("C")}";
+            receiptTone.Play();
             Refresh();
-            Thread.Sleep(500);
+            Thread.Sleep(800);
 
             leftReceiptLabel.Text += $"\nFries x {friesAmount}";
             rightReceiptLabel.Text += $"\n{friesTotal.ToString("C")}";
+            receiptTone.Play();
             Refresh();
-            Thread.Sleep(500);
+            Thread.Sleep(800);
 
             leftReceiptLabel.Text += $"\n\nSub Total:";
             rightReceiptLabel.Text += $"\n\n{subTotal.ToString("C")}";
+            receiptTone.Play();
             Refresh();
-            Thread.Sleep(500);
+            Thread.Sleep(800);
 
             leftReceiptLabel.Text += $"\nTax:";
             rightReceiptLabel.Text += $"\n{taxAmount.ToString("C")}";
+            receiptTone.Play();
             Refresh();
-            Thread.Sleep(500);
+            Thread.Sleep(800);
 
             leftReceiptLabel.Text += $"\nTotal:";
             rightReceiptLabel.Text += $"\n{totalCost.ToString("C")}";
+            receiptTone.Play();
             Refresh();
-            Thread.Sleep(500);
+            Thread.Sleep(800);
 
             leftReceiptLabel.Text += $"\n\nTendered:";
             rightReceiptLabel.Text += $"\n\n{tenderedAmount.ToString("C")}";
+            receiptTone.Play();
             Refresh();
-            Thread.Sleep(500);
+            Thread.Sleep(800);
 
-            leftReceiptLabel.Text += $"\nChange:";
+            if (changeLabel.Text == "Owed:")
+            {
+                leftReceiptLabel.Text += $"\nOwed:";
+            }
+            else
+            {
+                leftReceiptLabel.Text += $"\nChange:";
+            }
             rightReceiptLabel.Text += $"\n{changeAmount.ToString("C")}";
+            receiptTone.Play();
             Refresh();
-            Thread.Sleep(500);
+            Thread.Sleep(800);
 
             leftReceiptLabel.Text += "\n\nHave a nice day!";
+            receiptTone.Play();
+            Refresh();
+            Thread.Sleep(800);
+            registerTone.Play();
         }
 
-        private void NewOrderButton_Click(object sender, EventArgs e)
+        private void NewOrderButton_Click(object sender, EventArgs e)   //New order button on click
         {
             orderNumber++;
             titleLabel.ForeColor = Color.White;
@@ -165,6 +189,8 @@ namespace CashRegisterSummitive
             taxCostLabel.Text = "";
             totalCostLabel.Text = "";
             changeValueLabel.Text = "";
+            errorLabel.Text = "";
+            changeLabel.Text = "Change:";
 
             burgerTotal = 0;
             drinkTotal = 0;
@@ -173,6 +199,11 @@ namespace CashRegisterSummitive
             taxAmount = 0;
             totalCost = 0;
             changeAmount = 0;
+
+            burgerText.Text = "";
+            drinkText.Text = "";
+            friesText.Text = "";
+            tenderedText.Text = "";
         }
 
     }
